@@ -1,0 +1,13 @@
+[Unit]
+Description=Xbox controller driver daemon for Steam
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/xboxdrv --device-by-id 413d:2104 --type xbox360 --detach-kernel-driver --mimic-xpad --silent --daemon --force-feedback --deadzone 4000 --trigger-as-button --dpad-as-button
+Restart=on-failure
+RestartSec=5
+User=root
+
+[Install]
+WantedBy=multi-user.target
