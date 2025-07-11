@@ -1,0 +1,12 @@
+[Unit]
+Description=Xbox controller driver daemon
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/xboxdrv --device-by-id 413d:2104 --type xbox360 --detach-kernel-driver --silent --daemon
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
